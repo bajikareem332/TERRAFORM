@@ -1,22 +1,23 @@
 
 provider "aws" {
   region = "us-east-1"
+  profile = ""
 }
 
 
 module "ec2_instance" {
   source = "./modules/ec2_instance"
 }
-
+/*
 module "vpc" {
   source = "./modules/vpc"
 }
 
 module "s3" {
   source = "./modules/s3"
-}
+}*/
 
-/*resource "aws_dynamodb_table" "terraform1_lock" {
+resource "aws_dynamodb_table" "terraform1_lock" {
   name = "terraform1_lock"
   billing_mode = "PAY_PER_REQUEST"
   hash_key = "LockID"
@@ -24,4 +25,4 @@ module "s3" {
     name = "LockID"
     type = "S"
   }
-}*/
+}
